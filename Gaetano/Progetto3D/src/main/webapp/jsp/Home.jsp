@@ -3,18 +3,12 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>Campania Heritage</title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
-<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../css/style.css">
+
+<%@ include file="../files/headerPart1.html"%>
 
 </head>
 <body>
-  <div id="navbar">
-    <a class="selected" href="#intro">Welcome</a>
-    <a href="#one">Sezione Storico</a>
-    <a href="#two">Documenti in evidenza</a>
-  </div>
+<%@ include file="../files/navbar.html"%>
 <div class="cont">
 	<div class="slider"></div>
 	<ul class="nav"></ul></div>
