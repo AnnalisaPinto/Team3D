@@ -1,0 +1,13 @@
+<% 
+
+		if(request.getParameter("mode") != null && request.getParameter("mode").equals("logout")){
+	
+			if(session.getAttribute("logged") != null && session.getAttribute("logged").equals("true")){ 
+	
+			session.removeAttribute("utente");
+			session.removeAttribute("logged");
+		
+			}
+	
+		}
+%>
