@@ -8,7 +8,8 @@
 <body>
 <%@ include file="../files/navbar.html"%>
 <div class="container">
-	    <div class="card">
+	<br>
+	    <div class="card2">
         <div class="row no-gutters">
             <div class="col-auto">
                 <div class="sketchfab-embed-wrapper"> <iframe title="Pizza Napoletana" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/c3bbdc695aa04d8288a367d3718caefb/embed"> </iframe> </div>
@@ -17,13 +18,13 @@
                 <div class="card-block px-2">
                     <h4 class="card-title">Pizza Margherita</h4>
                     <p class="card-text">E' buona</p>
-                    <a href="#" class="btn btn-primary">Continua a leggere</a>
+                    <a href="VisualizzaStoria.jsp" class="btn btn-primary">Continua a leggere</a>
                 </div>
             </div>
         </div>
     </div>
     <br>
-    <div class="card">
+    <div class="card2">
         <div class="row no-gutters">
             <div class="col-auto">
 			<div class="sketchfab-embed-wrapper"> <iframe title="Life on the Vesuvio side, Italy" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/6c245d856aef452e83ee132f4d3ddc93/embed"> </iframe> </div>            </div>
@@ -31,7 +32,7 @@
                 <div class="card-block px-2">
                     <h4 class="card-title">Vesuvio</h4>
                     <p class="card-text">Vulcano buono(per ora)</p>
-                    <a href="#" class="btn btn-primary">Continua a leggere</a>
+                    <a href="VisualizzaStoria.jsp" class="btn btn-primary">Continua a leggere</a>
                 </div>
             </div>
         </div>
