@@ -1,7 +1,7 @@
 $(document).ready(function () {
   const $cont = $('.cont');
   const $slider = $('.slider');
-  const $nav = $('.nav');
+  const $nav = $('.jumbo');
   const winW = $(window).width();
   const animSpd = 750; // Change also in CSS
   const distOfLetGo = winW * 0.2;
@@ -179,12 +179,12 @@ $(document).ready(function () {
     pagination(1);
   });
 
-  $(document).on('click', '.side-nav', function () {
+  /* $(document).on('click', '.side-nav', function () {
     let target = $(this).attr('data-target');
 
     if (target === 'right') navigateRight();
     if (target === 'left') navigateLeft();
-  });
+  }); */
 
   $(document).on('keydown', function (e) {
     if (e.which === 39) navigateRight();

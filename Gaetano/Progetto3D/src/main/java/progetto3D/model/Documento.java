@@ -3,14 +3,15 @@ package progetto3D.model;
 public class Documento {
 	private int id;
 	private String titolo;
-	private String descrizione;
-	private String iframe;
+	private String data;
+	private boolean amministratore;
+	
 
-	public Documento(int id,String titolo, String descrizione, String iframe) {
+	public Documento(int id, String titolo, String data, boolean amministratore) {
 		this.id = id;
 		this.titolo = titolo;
-		this.descrizione = descrizione;
-		this.iframe = iframe;
+		this.data = data;
+		this.amministratore = amministratore;
 	}
 
 	public Documento() {
@@ -32,20 +33,20 @@ public class Documento {
 		this.titolo = titolo;
 	}
 
-	public String getDescrizione() {
-		return descrizione;
+	public String getData() {
+		return data;
 	}
 
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
+	public void setData(String data) {
+		this.data = data;
 	}
 
-	public String getIframe() {
-		return iframe;
+	public boolean isAmministratore() {
+		return amministratore;
 	}
 
-	public void setIframe(String iframe) {
-		this.iframe = iframe;
+	public void setAmministratore(boolean amministratore) {
+		this.amministratore = amministratore;
 	}
 
 }

@@ -14,15 +14,41 @@ public class Documenti {
 		try {
 			connessione.connect();
 
-			ResultSet set = connessione.executeQuery("Select * from sezionedocumenti");
+			ResultSet set = connessione.executeQuery("Select * from documenti order by data");
 
 			while (set.next()) {
 				int id = set.getInt("id");
 				String titolo = set.getString("titolo");
-				String descrizione = set.getString("descrizione");
-				String iframe = set.getString("iframe");
+				String data = set.getString("data");
+				boolean amministratore = set.getBoolean("amministratore");
 
-				Documento documento = new Documento(id,titolo, descrizione, iframe);
+				Documento documento = new Documento(id,titolo, data, amministratore);
+				documenti.add(documento);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			documenti = null;
+		}
+		return documenti;
+	}
+	
+	public static List<Documento> ReadAllByAdmin() {
+		List<Documento> documenti = new ArrayList<Documento>();
+	
+		ConnessioneDB connessione = new ConnessioneDB();
+
+		try {
+			connessione.connect();
+
+			ResultSet set = connessione.executeQuery("Select * from documenti where amministratore = 1");
+
+			while (set.next()) {
+				int id = set.getInt("id");
+				String titolo = set.getString("titolo");
+				String data = set.getString("data");
+				boolean amministratore = set.getBoolean("amministratore");
+
+				Documento documento = new Documento(id,titolo, data, amministratore);
 				documenti.add(documento);
 			}
 		} catch (SQLException e) {
@@ -44,9 +70,9 @@ public class Documenti {
 			if (set.next()) {
 				int id = set.getInt("id");
 				String titolo = set.getString("titolo");
-				String descrizione = set.getString("descrizione");
-				String iframe = set.getString("iframe");
-				documento = new Documento(id,titolo, descrizione, iframe);
+				String data = set.getString("data");
+				boolean amministratore = set.getBoolean("amministratore");
+				documento = new Documento(id,titolo, data, amministratore);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

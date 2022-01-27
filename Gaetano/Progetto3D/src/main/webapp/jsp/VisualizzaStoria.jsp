@@ -7,5 +7,8 @@
 </head>
 <body>
 <%@ include file="../files/navbar.html"%>
+<% int id = Integer.parseInt(request.getParameter("id"));
+
+%>
 </body>
 </html>

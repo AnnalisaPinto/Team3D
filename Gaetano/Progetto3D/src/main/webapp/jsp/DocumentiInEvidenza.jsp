@@ -12,9 +12,8 @@
 <%@ include file="../files/navbar.html"%>
 
 <div class="container">
-<% List<Documento> documenti = Documenti.ReadAll();
+<% List<Documento> documenti = Documenti.ReadAllByAdmin();
 for(Documento documento: documenti){
-
 %>
 <br>
 	    <div class="card2">
