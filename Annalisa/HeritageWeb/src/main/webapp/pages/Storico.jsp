@@ -8,19 +8,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>	
 <%@ include file="../include/gestioneLogout.html"%>
-<%
-Users u = null;
-boolean logged = false;
-
-if ((Boolean) session.getAttribute("logged") != null && (Boolean) session.getAttribute("logged") == true) {
-	if((Users) session.getAttribute("utente")!=null){
-	u = (Users) session.getAttribute("utente");
-	logged = true;
-	}
-}
-
-UserController utente = new UserController(u, logged);
-%>
 	
 <!DOCTYPE html>
 <html>
@@ -38,7 +25,9 @@ UserController utente = new UserController(u, logged);
 		<%
 		if (sezioni.size() > 0) {
 		%>
+		<div class="d-flex justify-content-center">
 		<h2><%=documento.getTitolo()%></h2>
+		</div>
 		<%
 		for (Sezione sezione : sezioni) {
 		%>
@@ -51,8 +40,7 @@ UserController utente = new UserController(u, logged);
 						<div class="col">
 							<div class="card-block px-2">
 								<p class="card-text"><%=sezione.getTesto()%></p>
-								<a href="VisualizzaStoria.jsp" class="btn btn-primary">Continua
-									a leggere</a>
+								<a href="VisualizzaStoria.jsp?id=<%=+documento.getId()%>" class="btn btn-primary">Continua a leggere</a>
 							</div>
 						</div>
 					</div>

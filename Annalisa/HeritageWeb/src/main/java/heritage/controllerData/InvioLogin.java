@@ -21,11 +21,12 @@ public class InvioLogin {
 
 	public static Users recuperaUtente(String nickname, String password) {
 		
-		///////////////utente placeholder
-		if(nickname.equals("uomo") && password.equals("avido")) {
-			return new Users(666, 2, "uomoavido@soldi.com", "uomoAvido");
+		// Utente placeholder
+		if(nickname.equals("guest") && password.equals("guest")) {
+			return new Users(0, 19, "guest@guest.guest", "guest");
 		}
-		///////////////////
+		
+		//
 		String result = "-1";
 
 		try {
@@ -54,7 +55,6 @@ public class InvioLogin {
 
 				while ((inputLine = in.readLine()) != null) {
 					response.append(inputLine + "\n");
-					System.out.println(response.toString());
 				}
 				
 				in.close();
@@ -80,8 +80,6 @@ public class InvioLogin {
 		e.printStackTrace();
 		}
 		
-		
-		System.out.println("chiamata " +result);
 		result = result.trim();
 		//int valore = Integer.parseInt(result);
 		return user;

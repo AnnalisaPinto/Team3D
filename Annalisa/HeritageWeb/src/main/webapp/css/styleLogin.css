@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: url('img/bg.jpg') no-repeat center;
+  background: url('../img/LoginBG.jpg') no-repeat center;
   background-size: cover;
   font-family: sans-serif;
 }
@@ -50,7 +50,7 @@ body {
   text-align: center;
   letter-spacing: 1px;
   margin-bottom: 2rem;
-  color: #ff652f;
+  color: #78B33E;
 }
 .form .input-group {
   position: relative;
@@ -79,7 +79,7 @@ body {
 .form .input-group input:focus + label,
 .form .input-group input:valid + label {
   transform: translateY(-18px);
-  color: #ff652f;
+  color: #78B33E;
   font-size: .8rem;
 }
 .submit-btn {
@@ -87,7 +87,7 @@ body {
   margin-left: auto;
   border: none;
   outline: none;
-  background: #ff652f;
+  background: #78B33E;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
