@@ -10,48 +10,45 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import users.model.Users;
 import users.model.UsersRepository;
 
 /**
  * Servlet implementation class TestServlet
  */
-@WebServlet("/testServlet")
+@WebServlet("/TestServlet")
 public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public TestServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public TestServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+	
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String nickname = request.getParameter("nickname");
-		String password = request.getParameter("password");
-		int id = UsersRepository.verificaLogin(nickname, password);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		Users user = UsersRepository.verificaLogin(request.getParameter("nickname"), request.getParameter("password"));
+		
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonResult = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(id);
+		
+		String jsonResult = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user);
 		response.getWriter().append(jsonResult);
-		response.setContentType("application/json");
 
+		response.setContentType("application/json");
 	}
 
 }

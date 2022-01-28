@@ -8,6 +8,7 @@ public class UsersRepository {
 
 	public static int findOneByNickname(String nickname) {
 
+		// ???
 		ConnessioneDB connessione = new ConnessioneDB();
 		int count = 0;
 		try {
@@ -23,27 +24,35 @@ public class UsersRepository {
 		return count;
 	}
 	
-	
-	
-	public static int verificaLogin(String nickname, String password) {
+	public static Users verificaLogin(String nickname, String password) {
 		ConnessioneDB connessione = new ConnessioneDB();
-		int count = 0;
+		Users user = null;
 		try {
 			connessione.connect();
 
 			ResultSet set = connessione
-					.executeQuery("SELECT nickname, password, COUNT(*) as quanti  FROM user WHERE nickname='" + nickname + "' AND password ='" + password +"';");
-			set.next();
-			count = set.getInt("quanti");
+					.executeQuery("SELECT * FROM user WHERE nickname='" + nickname + "' AND password ='" + password +"';");
+			if(set.next()) {
+				int id = set.getInt("id");
+				int id_avatar = set.getInt("id_avatar");
+				String mail_address = set.getString("mail_address");
+				String nickname_trovato = set.getString("nickname");
+				
+				user = new Users(id, id_avatar, mail_address, nickname_trovato, null);
+			};
+		
 					
 					
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return count;
+		return user;
 		
-
 	}
+	
+	
+	
+	
 	
 }

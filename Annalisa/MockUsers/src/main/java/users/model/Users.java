@@ -2,11 +2,33 @@ package users.model;
 
 public class Users {
 	
+	
 	private int id;
 	private int id_avatar;
 	private String mail_address;
 	private String nickname;
 	private String password;
+	
+	public Users(int id, int id_avatar, String mail_address, String nickname, String password) {
+		super();
+		this.id = id;
+		this.id_avatar = id_avatar;
+		this.mail_address = mail_address;
+		this.nickname = nickname;
+		this.password = password;
+	}
+	public Users(int id, int id_avatar, String mail_address, String nickname) {
+		super();
+		this.id = id;
+		this.id_avatar = id_avatar;
+		this.mail_address = mail_address;
+		this.nickname = nickname;
+	
+	}
+	
+	public Users() {
+		
+	}
 	
 	
 	public int getId() {
