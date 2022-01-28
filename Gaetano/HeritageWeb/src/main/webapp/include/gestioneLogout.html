@@ -1,0 +1,11 @@
+<% 
+		if(request.getParameter("mode") != null && request.getParameter("mode").equals("logout")){
+	
+			if(session.getAttribute("logged") != null && (Boolean)session.getAttribute("logged") == true){ 
+	
+				session.removeAttribute("logged");
+	
+			}
+	
+		}
+%>
