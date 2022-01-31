@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>SVG</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="https://drive.google.com/uc?export=download&id=18F63FQeNvQV6J-WPPGo3SqWfsy7Y_bBo">
+</head>
+<body>
+
+	<button id="button">Test Crea Contatto</button>
+	<button id="buttonAccept">Test Accetta Contatto</button>
+	<p id="p-done">testare</p>
+	
+	<script>
+	var button = document.getElementById("button");
+	var buttonAccept = document.getElementById("buttonAccept");
+	var p = document.getElementById('p-done');
+	
+	function createContact(){
+		const request = new XMLHttpRequest();
+		console.log('creare');
+		request.open("GET", "http://127.0.0.1:8081/createContact/1/2");
+		request.send();
+		
+	}
+	function acceptContact() {
+		const request = new XMLHttpRequest();
+		console.log('accettare');
+		request.open("GET", "http://127.0.0.1:8081/acceptContact/2/1");
+		request.send();
+	}
+	
+	function changePContent(stringa){
+		p.innerHTML = stringa;
+		console.log("creato");
+	}
+	button.addEventListener("click", function(){
+		changePContent("crea contatto");
+		createContact();
+	});
+	buttonAccept.addEventListener("click", function(){
+		changePContent("accetta contatto");
+		acceptContact();
+		
+	});
+	</script>
+	
+	</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Registrazione</title>
+	<link href="/style.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body onload="checkNick(); checkPass(); checkMail();">
+	<div class="centrato">
+		<h1 class="intestazione">Inserisci i dati:</h1>
+		
+		<form th:action="@{/confirm?nickname=$nickname&password=$password&email=$email&avatar=$avatar}">
+
+			<label for="nickname">Nickname:</label><br>
+			<input type="text" id="nickname" name="nickname" placeholder="Nickname" onblur="checkNick(); checkPass(); checkMail();"><br>
+			<p style="color: red" id="containerNick"></p>
+			<label for="password">Password:</label><br>
+			<input type="password" id="password" name="password" placeholder="Password" onblur="checkPass(); checkNick(); checkMail();"><br>
+			<p style="color: red"; id="containerPass"></p>
+			<label for="email">E-mail:</label><br>
+			<input type="email" id="email" name="email" placeholder="email" onblur="checkMail(); checkPass(); checkNick();"><br>
+			<p style="color: red"; id="containerEmail"></p>
+
+
+			<label for="avatar">Avatar:<br>
+				<span th:each="avatar:${avatars}">
+					<label>
+						<input type="radio" name="avatar" th:value="${avatar.id}" checked>
+						<img th:src="${avatar.image}">
+						</input>
+					</label>
+				</span>
+			</label>
+
+			<input id="bottone" type="submit" value="Registrati">
+			<!--  <input type="reset" value="Reset"> -->
+		</form>
+	</div>
+
+	<script>
+	
+	function checkNick(){
+		var nickname = document.getElementById("nickname").value;
+		var container = document.getElementById("containerNick");
+		var bottone = document.getElementById("bottone");
+		
+		if(nickname == " " || nickname == ""){
+			container.innerHTML = "Inserisci un nickname";
+			bottone.disabled = true;
+			bottone.style.backgroundColor = "#ff0000";
+		}else{
+			container.innerHTML = "";
+			bottone.disabled = false;
+			bottone.style.backgroundColor = "#4CAF50";
+			
+		}
+	}
+	
+	function checkPass(){
+		var password = document.getElementById("password").value;
+		var container = document.getElementById("containerPass");
+		var bottone = document.getElementById("bottone");
+		
+		if(password == " " || password == ""){
+			container.innerHTML = "Inserisci una password"
+			bottone.disabled = true;
+			bottone.style.backgroundColor = "#ff0000";
+
+		}else{
+			container.innerHTML = "";
+			bottone.disabled = false;
+			bottone.style.backgroundColor = "#4CAF50";
+		}
+	}
+	
+	function checkMail(){
+		var email = document.getElementById("email").value;
+		var container = document.getElementById("containerEmail");
+		var bottone = document.getElementById("bottone");
+		
+		if(email == " " || email == ""){
+			container.innerHTML = "Inserisci una mail";
+			bottone.disabled = true;
+			bottone.style.backgroundColor = "#ff0000";
+		}else{
+			container.innerHTML = "";
+			bottone.disabled = false;
+			bottone.style.backgroundColor = "#4CAF50";
+		}
+		
+	}
+	
+	var stringa = document.getElementById("nickname");
+		function validaNickname(stringa) {
+			var pattern = new RegExp("^[a-zA-Z0-9_]*$");
+			return pattern.test(stringa);
+		}
+	
+	var password = document.getElementById("password");
+		function validaPassword(password) {
+			var patternPass = new RegExp("^[a-zA-Z0-9_]*$");
+			return patternPass.test(password);
+		}
+
+		nickname.addEventListener("blur", function () {
+
+			if (!validaNickname(nickname.value)) {
+				console.log("Caratteri non ammessi");
+				return;
+			}
+
+			ajaxLogin("nickname", nickname.value);
+
+		})
+
+		password.addEventListener("blur", function () {
+			if (!validaPassword(password.value)) {
+				console.log("Valori sbagliati password");
+				return;
+			}
+		})
+
+		submit.addEventListener("click", function (event) {
+			event.preventDefault();
+
+			if (validaPassword(password.value) && validaNickname(nickname.value)) {
+				document.getElementById("form").submit();
+			} else {
+				console.log("Valori errati");
+				return;
+			}
+
+		})
+
+
+	</script>
+
+</body>
+
+
+
+</html>
