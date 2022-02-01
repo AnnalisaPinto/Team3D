@@ -8,24 +8,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>	
 <%@ include file="../include/gestioneLogout.html"%>
-<%
-Users u = null;
-boolean logged = false;
-
-if ((Boolean) session.getAttribute("logged") != null && (Boolean) session.getAttribute("logged") == true) {
-	if((Users) session.getAttribute("utente")!=null){
-	u = (Users) session.getAttribute("utente");
-	logged = true;
-	}
-}
-
-UserController utente = new UserController(u, logged);
-%>
 	
 <!DOCTYPE html>
 <html>
 <head>
 <%@ include file="../include/headerPart1.html"%>
+<link rel="stylesheet" href="../css/styleStory.css">
 </head>
 <body>
 	<%@ include file="../include/navbar.html"%>
@@ -37,7 +25,7 @@ UserController utente = new UserController(u, logged);
 		if (sezioni.size() > 0) {
 		%>
 		<div class="d-flex justify-content-center">
-		<h2><%=documento.getTitolo()%></h2>
+		<a href="VisualizzaDocumento.jsp?id=<%=+documento.getId()%>" id="ex3" style="text-decoration:none"> <h2><%=documento.getTitolo()%></h2> </a>
 		</div>
 		<%
 		for (Sezione sezione : sezioni) {
@@ -46,12 +34,12 @@ UserController utente = new UserController(u, logged);
 			<div class="card2">
 				<div class="row no-gutters">
 					<div class="col-auto">
-						<div class="sketchfab-embed-wrapper"><%=sezione.getIframe()%>
+						<%=sezione.getIframe()%>
 						</div>
 						<div class="col">
 							<div class="card-block px-2">
-								<p class="card-text"><%=sezione.getTesto()%></p>
-								<a href="VisualizzaStoria.jsp?id=<%=+documento.getId()%>" class="btn btn-primary">Continua a leggere</a>
+								<p class="card-text bg-light rounded fst-italic" ><%=sezione.resizeTesto(sezione.getTesto())%></p>
+								<a href="VisualizzaStoria.jsp?id=<%=+sezione.getId()%>" class="btn btn-primary">Continua a leggere</a>
 							</div>
 						</div>
 					</div>

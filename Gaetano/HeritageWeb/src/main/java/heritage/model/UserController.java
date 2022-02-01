@@ -2,6 +2,8 @@ package heritage.model;
 
 import java.util.List;
 
+import heritage.controllerData.ConnessioneJson;
+
 
 public class UserController {
 
@@ -107,6 +109,7 @@ public class UserController {
 		}
 		return html;
 	}
+	
 	public static List<Users> ReadAll() {
 
 		ConnessioneJson json = new ConnessioneJson();

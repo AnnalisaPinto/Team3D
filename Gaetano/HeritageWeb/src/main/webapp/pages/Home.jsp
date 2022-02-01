@@ -3,21 +3,6 @@
 <%@page import="heritage.model.UserController"%>
 <%@page import="heritage.model.Users"%>
 <%@ include file="../include/gestioneLogout.html"%>
-<%
-Users u = null;
-boolean logged = false;
-
-if ((Boolean) session.getAttribute("logged") != null && (Boolean) session.getAttribute("logged") == true) {
-	if((Users) session.getAttribute("utente")!=null){
-	u = (Users) session.getAttribute("utente");
-	logged = true;
-	}
-}
-
-UserController utente = new UserController(u, logged);
-%>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

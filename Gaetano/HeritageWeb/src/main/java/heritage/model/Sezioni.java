@@ -1,5 +1,6 @@
 package heritage.model;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,7 +21,8 @@ public class Sezioni {
 			while (set.next()) {
 				int id = set.getInt("id");
 				String iframe = set.getString("iframe");
-				String testo = set.getString("testo");
+				byte[] arrayTesto= set.getBytes("testo");
+				String testo =  new String(arrayTesto, StandardCharsets.UTF_8);
 				int id_documento = set.getInt("id_documento");
 
 				Sezione sezione = new Sezione(id,iframe, testo, id_documento);
@@ -46,7 +48,8 @@ public class Sezioni {
 			while (set.next()) {
 				int id = set.getInt("id");
 				String iframe = set.getString("iframe");
-				String testo = set.getString("testo");
+				byte[] arrayTesto= set.getBytes("testo");
+				String testo =  new String(arrayTesto, StandardCharsets.UTF_8);
 				int id_documento = set.getInt("id_documento");
 
 				Sezione sezione = new Sezione(id,iframe, testo, id_documento);
@@ -72,7 +75,8 @@ public class Sezioni {
 			while (set.next()) {
 				int id = set.getInt("id");
 				String iframe = set.getString("iframe");
-				String testo = set.getString("testo");
+				byte[] arrayTesto= set.getBytes("testo");
+				String testo =  new String(arrayTesto, StandardCharsets.UTF_8);
 				int id_documento = set.getInt("id_documento");
 
 				sezione = new Sezione(id,iframe, testo, id_documento);

@@ -55,7 +55,6 @@ public class InvioLogin {
 
 				while ((inputLine = in.readLine()) != null) {
 					response.append(inputLine + "\n");
-					System.out.println(response.toString());
 				}
 				
 				in.close();
@@ -81,8 +80,6 @@ public class InvioLogin {
 		e.printStackTrace();
 		}
 		
-		
-		System.out.println("chiamata " +result);
 		result = result.trim();
 		//int valore = Integer.parseInt(result);
 		return user;
