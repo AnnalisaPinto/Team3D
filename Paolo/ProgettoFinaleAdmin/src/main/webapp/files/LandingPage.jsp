@@ -17,7 +17,7 @@
 	//utente.getPassword().equals(set.getString("password")
 
 	if (admin.getPassword_admin().equals(adminCheck.getPassword_admin())) {
-		String redirectURL = "http://localhost:8080/ProgettoFinaleAdmin/files/CreateCode.jsp";
+		String redirectURL = "http://localhost:8080/ProgettoFinaleAdmin/files/CreateDocumento.jsp";
 		response.sendRedirect(redirectURL);
 
 	} else {

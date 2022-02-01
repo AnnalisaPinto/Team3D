@@ -10,7 +10,7 @@ public class ConnessioneDB {
 	
 	//Parametri di Configurazione
 	private static final String HOST =  "jdbc:mysql://localhost:3306/";
-	private static final String DATABASE =  "amministrazione";
+	private static final String DATABASE =  "heritagedb";
 	private static final String USERNAME =  "root";
 	private static final String PASSWORD =  "";
 	private static final String DRIVER =  "com.mysql.jdbc.Driver";

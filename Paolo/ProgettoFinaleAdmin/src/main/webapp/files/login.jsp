@@ -35,14 +35,14 @@ body, h1, h2, h3, h4, h5, h6 {
 	<!-- Header -->
 	<header class="w3-container w3-blue w3-center"
 		style="padding: 78px 16px">
-		<h1>Benvenuto nella sezione Admin</h1>
+		<h1>Pannello Amministratore</h1>
 	</header>
 <body>
 	<h1>
 		<br>
 	</h1>
 	<div>
-		<h1 style="text-align: center;">LogIn Admin</h1>
+		<h1 style="text-align: center;">LOGIN Admin</h1>
 		<form action="LandingPage.jsp" style="text-align: center;">
 
 			<div>
@@ -57,7 +57,7 @@ body, h1, h2, h3, h4, h5, h6 {
 
 
 			</div>
-			<br> <input type="submit" value="LogIn" /> <input type="reset" value="Cancella">
+			<br> <input type="submit" value="LOGIN"/> <input type="reset" value="CANCELLA">
 
 
 		</form>
@@ -67,9 +67,6 @@ body, h1, h2, h3, h4, h5, h6 {
 
 
 
-<%
-session.removeAttribute("nome_admin");
-%>
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">
