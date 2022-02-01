@@ -8,31 +8,31 @@ import heritage.controllerData.RecuperoJson;
 
 public class Contacts {
 
-	public static List<User> readAcceptedUsers(int asked) {
+	public static List<User> readAcceptedUsers(int asker) {
 
 		RecuperoJson<Contact> json = new RecuperoJson<Contact>();
 		LinkedList<Contact> tuttiContatti;
 		// Placeholder: riempie la LinkedList di contatti fasulli
-		if (asked == 0) {
+		if (asker == 3) {
 			tuttiContatti = new LinkedList<Contact>();
-			tuttiContatti.add(new Contact(12, new User(0, 19, "guest@guest.guest", "guest"),
-					new User(1, 18, "guest1@guest.guest", "guest1"), 1));
-			tuttiContatti.add(new Contact(12, new User(0, 19, "guest@guest.guest", "guest"),
-					new User(2, 3, "guest2@guest.guest", "guest2"), 1));
+			tuttiContatti.add(new Contact(12, new User(3, 19, "guest@guest.guest", "guest"),
+					new User(1, 18, "guest1", "guest1@guest.guest"), 1));
+			tuttiContatti.add(new Contact(12, new User(3, 19, "guest@guest.guest", "guest"),
+					new User(2, 3, "guest2", "guest2@guest.guest"), 1));
 		} else {
 			// Cast su un metodo generic:
 			// Restituisce i contatti per quell'user, qualsiasi sia lo status
-			tuttiContatti = (LinkedList<Contact>) json.getList("http://127.0.0.1:8081/contact/all/" + asked,
+			tuttiContatti = (LinkedList<Contact>) json.getList("http://127.0.0.1:8081/contact/all/" + asker,
 					Contact.class);
 		}
 		Iterator<Contact> i = tuttiContatti.iterator();
-		// Voglio soltanto gli utenti restituiti da asker
+		// Voglio soltanto gli utenti restituiti da asked
 		LinkedList<User> accettate = new LinkedList<User>();
 		while (i.hasNext()) {
 			Contact contact = (Contact) i.next();
 			// E soltanto dove lo status è "Accettato"
 			if (contact.getStatus() == 1) {
-				accettate.add(contact.getAsker());
+				accettate.add(contact.getAsked());
 			}
 		}
 

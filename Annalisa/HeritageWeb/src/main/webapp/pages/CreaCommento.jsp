@@ -2,28 +2,31 @@
 	pageEncoding="UTF-8"%>
 <%@page import="heritage.model.UserController"%>
 <%@page import="heritage.model.User"%>
+<%@page import="heritage.model.Commenti"%>
 <%@ include file="../include/gestioneLogout.jsp"%>
+<%
+String url = "";
+// "referer" restituisce l'indirizzo dell'ultima pagina prima di arrivare qui
+if ("GET".equalsIgnoreCase(request.getMethod())) {
+	url = request.getHeader("referer").replace("?mode=logout", "");
+	session.setAttribute("loginReferer", url);
 
+}
+
+String commento = request.getParameter("commento");
+int id_documento = Integer.parseInt(request.getParameter("id_documento"));
+User sessione = utente.getUser();
+Commenti.CreateComment(commento, sessione, id_documento);
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../css/styleLanding.css">
-<title>Benvenuto su Heritage!</title>
+<title>Commento creato!</title>
 </head>
 <body>
-
-	<div id="main" class="is-loading">
-	<!-- L'errore "utente cannot be resolved" viene risolto in runtime -->
-	<!-- L'oggetto "utente" si trova in "gestioneLogout.html" -->
-		<h1>
-			Benvenuto su Heritage,
-			<%=utente.getUser().getNickname()%>!
-		</h1>
-	</div>
-
 	<input type="hidden" id="ref"
-		value="<%=session.getAttribute("loginReferer") %>">
+		value="<%=session.getAttribute("loginReferer")%>">
 
 	<script>
 		function reindirizza() {
@@ -33,7 +36,7 @@
 
 			setTimeout(function() {
 				window.location.href = url;
-			}, 4000)
+			}, 1)
 
 		}
 

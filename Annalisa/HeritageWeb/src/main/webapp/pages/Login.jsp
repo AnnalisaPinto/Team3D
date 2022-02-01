@@ -27,7 +27,7 @@ if ("POST".equalsIgnoreCase(request.getMethod())) {
 	}
 }
 %>
-<%@ include file="../include/gestioneLogout.html"%>
+<%@ include file="../include/gestioneLogout.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,12 +1,12 @@
 package heritage.controllerData;
 
-import heritage.model.Contacts;
+import heritage.model.Users;
 
 public class Test {
 
 	public static void main(String[] args) {
 		
-		System.out.println(Contacts.readAcceptedUsers(0));
+		System.out.println(Users.readUserById(4).getNickname());
 		
 
 	}

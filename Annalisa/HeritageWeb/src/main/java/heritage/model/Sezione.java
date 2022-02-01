@@ -40,6 +40,8 @@ public class Sezione {
 		this.id_documento = id_documento;
 	}
 	
-	
+	public String resizeTesto(String testo) {
+		return testo.substring(0, 300)+"...";
+	}
 	
 }

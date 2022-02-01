@@ -23,7 +23,7 @@ public class InvioLogin {
 		
 		// Utente placeholder
 		if(nickname.equals("guest") && password.equals("guest")) {
-			return new User(0, 19, "guest", "guest@guest.guest");
+			return new User(3, 19, "guest", "guest@guest.guest");
 		}
 		
 		//
@@ -31,7 +31,7 @@ public class InvioLogin {
 
 		try {
 			// Dovete accendere il server per eseguire questa!!
-			URL paginaURL = new URL("http://localhost:8081/MockUsers/TestServlet");
+			URL paginaURL = new URL("http://localhost:8081/verificalogin??");
 
 			HttpURLConnection client = (HttpURLConnection) paginaURL.openConnection();
 			client.setRequestMethod("POST");

@@ -10,12 +10,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import heritage.model.Contact;
 
 public class RecuperoJson<T> {
 
@@ -56,8 +53,7 @@ public class RecuperoJson<T> {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			JavaType type = mapper.getTypeFactory().constructParametricType(LinkedList.class, contentClass);
-			//TypeReference<List<Contact>> typeRef = new TypeReference<List<Contact>>() {};
-
+			// TypeReference<List<T>> typeRef = new TypeReference<List<T>>() {};
 			List<T> list = mapper.readValue(jSon, type);
 			return list;
 		} catch (JsonMappingException e) {
@@ -70,21 +66,22 @@ public class RecuperoJson<T> {
 			return list;
 		}
 	}
-//	public Users getObject(String url){
-//		String jSon = downloadJson(url);
-//		try {
-//		ObjectMapper mapper=new ObjectMapper();
-//		TypeReference<Users> typeRef 
-//		  = new TypeReference<Users>() {};
-//		  Users object = mapper.readValue(jSon, typeRef);
-//		return object;
-//		}catch(JsonMappingException e) {
-//			Users object = null;
-//			return object;
-//		}
-//		catch (JsonProcessingException e) {
-//			Users object = null;
-//			return object;
-//		}
-//	}
+
+	public T getObject(String url, Class<T> contentClass) {
+		String jSon = downloadJson(url);
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			JavaType type = mapper.getTypeFactory().constructParametricType(Object.class, contentClass);
+			T object = mapper.readValue(jSon, type);
+			return object;
+		} catch (JsonMappingException e) {
+			T object = null;
+			e.printStackTrace();
+			return object;
+		} catch (JsonProcessingException e) {
+			T object = null;
+			e.printStackTrace();
+			return object;
+		}
+	}
 }

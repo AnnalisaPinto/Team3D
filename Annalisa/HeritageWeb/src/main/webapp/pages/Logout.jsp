@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="heritage.model.UserController"%>
 <%@page import="heritage.model.User"%>
-<%@ include file="../include/gestioneLogout.html"%>
+<%@ include file="../include/gestioneLogout.jsp"%>
 <%
 String url = "";
 //"referer" restituisce l'indirizzo dell'ultima pagina prima di arrivare qui
