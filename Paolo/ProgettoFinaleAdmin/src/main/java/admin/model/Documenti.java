@@ -20,7 +20,7 @@ public class Documenti {
 				int id = set.getInt("id");
 				String titolo = set.getString("titolo");
 				String data = set.getString("data");
-				boolean amministratore = set.getBoolean("amministratore");
+				int amministratore = set.getInt("amministratore");
 
 				Documento documento = new Documento(id,titolo, data, amministratore);
 				documenti.add(documento);
@@ -47,7 +47,7 @@ public class Documenti {
 				int id = set.getInt("id");
 				String titolo = set.getString("titolo");
 				String data = set.getString("data");
-				boolean amministratore = set.getBoolean("amministratore");
+				int amministratore = set.getInt("amministratore");
 
 				Documento documento = new Documento(id,titolo, data, amministratore);
 				documenti.add(documento);
@@ -73,7 +73,7 @@ public class Documenti {
 				int id = set.getInt("id");
 				String titolo = set.getString("titolo");
 				String data = set.getString("data");
-				boolean amministratore = set.getBoolean("amministratore");
+				int amministratore = set.getInt("amministratore");
 
 				 documento = new Documento(id,titolo, data, amministratore);
 			}

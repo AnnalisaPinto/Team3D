@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@page import="java.util.*"%>
+<%@page import="java.util.*"%>
 <%@page import="admin.model.*"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,19 +38,19 @@ body, h1, h2, h3, h4, h5, h6 {
 				title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a> <a
 				href="logout.jsp"
 				class="w3-bar-item w3-button w3-padding-large w3-hover-white">LOGOUT</a>
-				<a href=CreateSezioni.jsp
-				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Creazione Sezione</a>
-			<a href=ModificaDocumento.jsp
-				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Modifica Documento</a>
-				<a href="ModificaSezioni.jsp"
-				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Modifica Sezione</a>
-			<a href=EliminaDocumento.jsp
-				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Elimina Documento</a>
-				<a href=EliminaSezione.jsp
-				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Elimina Sezione</a>
-				<a href=Evidenza.jsp
+			<a href=CreateSezioni.jsp
+				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Creazione
+				Sezione</a> <a href=ModificaDocumento.jsp
+				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Modifica
+				Documento</a> <a href="ModificaSezioni.jsp"
+				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Modifica
+				Sezione</a> <a href=EliminaDocumento.jsp
+				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Elimina
+				Documento</a> <a href=EliminaSezione.jsp
+				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Elimina
+				Sezione</a> <a href=Evidenza.jsp
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Evidenza</a>
-				
+
 		</div>
 
 	</div>
@@ -59,47 +59,72 @@ body, h1, h2, h3, h4, h5, h6 {
 	<header class="w3-container w3-blue w3-center"
 		style="padding: 128px 16px">
 		<h1>Amministratore</h1>
-		
-		<br><br>
+
+		<br> <br>
 
 		<div class="container">
 
 			<h4 style="text-align: center;">Crezione Nuovo Documento</h4>
-			
-			<br><br>
+
+			<br> <br>
 
 
 
 			<form action="ConfirmCreateDoc.jsp" style="text-align: center;">
-			
-			
-			<input style="text-align: center;" type="text" id="titolo" name="titolo" placeholder="Titolo Storia">
-			<input type="date" id = "data" name="data" placeholder="">
-			<!-- <input type="number" id="amministratore" name="amministratore" min="0" max="1" placeholder="1"> -->
-			
-			<div>
-			<br> <br>
-  <label>
-    Mettere in evidenza?
-    <select name="amministratore">
-      <option value="">---</option>
-      <option id= "amministratore" value="1">Si</option>
-      <option id= "amministratore" value="0">No</option>
-    </select>
-  </label>
-</div>
-<br><br>	
-			<a><button type="submit" class="submit">Submit</button></a>
-			
-			
 
-				
-	
-					
+
+				<input style="text-align: center;" type="text" id="titolo"
+					name="titolo" placeholder="Titolo Storia"> <input
+					type="date" id="data" name="data" placeholder="">
+				<!-- <input type="number" id="amministratore" name="amministratore" min="0" max="1" placeholder="1"> -->
+
+				<div>
+					<br> <br>
+
+					<%
+					List<Documento> documento = Documenti.ReadAll();
+					int contatore = 0;
+					for (Documento documenti : documento) {
+						if (documenti.isAmministratore() == 2) {
+							contatore++;
+						}
+					}
+					if (contatore == 0) {
+					%>
+					<label> Tipo <select name="amministratore">
+							<option value="">---</option>
+							<option id="amministratore" value="1">In Evidenza</option>
+							<option id="amministratore" value="0">Storico</option>
+							<option id="amministratore" value="2">Home</option>
+					</select>
+					</label>
+				</div>
+				<br> <br> <a><button type="submit" class="submit">Submit</button></a>
 			</form>
 
 
 		</div>
+
+		<%
+		} else {
+		%>
+		<label> Tipo <select name="amministratore">
+				<option value="">---</option>
+				<option id="amministratore" value="1">In Evidenza</option>
+				<option id="amministratore" value="0">Storico</option>
+		</select>
+		</label>
+		</div>
+		<br> <br> <a><button type="submit" class="submit">Submit</button></a>
+		</form>
+
+
+		</div>
+		<%
+		}
+		%>
+
+
 	</header>
 
 	<!-- Footer -->

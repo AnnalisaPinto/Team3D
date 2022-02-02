@@ -4,10 +4,10 @@ public class Documento {
 	private int id;
 	private String titolo;
 	private String data;
-	private boolean amministratore;
+	private int amministratore;
 	
 
-	public Documento(int id, String titolo, String data, boolean amministratore) {
+	public Documento(int id, String titolo, String data, int amministratore) {
 		this.id = id;
 		this.titolo = titolo;
 		this.data = data;
@@ -19,7 +19,7 @@ public class Documento {
 	
 	
 
-	public Documento(boolean amministratore) {
+	public Documento(int amministratore) {
 		this.amministratore = amministratore;
 	}
 
@@ -53,11 +53,11 @@ public class Documento {
 		this.data = data;
 	}
 
-	public boolean isAmministratore() {
+	public int isAmministratore() {
 		return amministratore;
 	}
 
-	public void setAmministratore(boolean amministratore) {
+	public void setAmministratore(int amministratore) {
 		this.amministratore = amministratore;
 	}
 

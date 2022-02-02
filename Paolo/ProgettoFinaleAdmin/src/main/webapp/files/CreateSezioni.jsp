@@ -80,7 +80,7 @@ body, h1, h2, h3, h4, h5, h6 {
 		    for(Documento documenti : documento) {
 		    	
 			%>
-			<option value="<%=documenti.getId()%>"><%=documenti.getId()%> - <%=documenti.getTitolo() %></option>
+			<option value="<%=documenti.getId()%>"><%=documenti.isAmministratore()%> - <%=documenti.getTitolo() %></option>
 			
 			<%
 		    }
