@@ -79,7 +79,7 @@ body, h1, h2, h3, h4, h5, h6 {
 
             <input type="Hidden" id="id" name="id" value="<%=sezioni.getId()%>">
 			<input type="text" id="testo" name="testo" value="<%=sezioni.getTesto()%>" readonly>
-			<input type="text" id= "iframe" name="iframe" value="<%=sezioni.getIframe()%>" readonly>
+			<input type="hidden" id= "iframe" name="iframe" value="" readonly>
 
 			<a href="ConfirmEliminaSezione.jsp?id=<%=sezioni.getId()%>"><button type="button" class="delete">Elimina</button></a>
 			<br> <br>

@@ -81,9 +81,9 @@ body, h1, h2, h3, h4, h5, h6 {
 			<form action="ConfirmModificaDoc.jsp" style="text-align: center;">
 			<input type="hidden" id="id" name="id" value="<%=documenti.getId()%>">
 			Titolo
-			<input type="text" name="titolo" value="<%=documenti.getTitolo()%>">
+			<input style="text-align: center; type="text" name="titolo" value="<%=documenti.getTitolo()%>">
 			Data
-			<input type="date" name="data" value="<%=documenti.getData()%>">
+			<input style="text-align: center; type="date" name="data" value="<%=documenti.getData()%>">
 
 			<a><button type="submit" class="submit">Modifica</button></a>
 			<br> <br>

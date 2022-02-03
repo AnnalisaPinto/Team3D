@@ -77,9 +77,8 @@ body, h1, h2, h3, h4, h5, h6 {
 			
 			%>
             <form action="ConfirmModificaSezioni.jsp">
-            Iframe
             <input type="hidden" id="id" name="id" value="<%=sezioni.getId()%>">
-			<input type="text" id= "iframe" name="iframe" value="<%=sezioni.getIframe()%>">
+			<input style="text-align: center; type="text" id= "iframe" name="iframe" placeholder="Iframe">
 			Testo
 			<input type="text" id="testo" name="testo" value="<%=sezioni.getTesto()%>">
 

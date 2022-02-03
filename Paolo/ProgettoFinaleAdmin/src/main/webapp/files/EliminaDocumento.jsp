@@ -83,8 +83,8 @@ body, h1, h2, h3, h4, h5, h6 {
 			%>
 			
 			<input type="Hidden" id="id" name="id" value="<%=documenti.getId()%>">
-			<input type="text" name="titolo" value="<%=documenti.getTitolo()%>" readonly>
-			<input type="date" name="data" value="<%=documenti.getData()%>" readonly>
+			<input style="text-align: center; type="text" name="titolo" value="<%=documenti.getTitolo()%>" readonly>
+			<input style="text-align: center; type="date" name="data" value="<%=documenti.getData()%>" readonly>
 
 			<a href="ConfirmEliminaDoc.jsp?id=<%=documenti.getId()%>"><button type="button" class="delete">Elimina</button></a>
 			<br> <br>
