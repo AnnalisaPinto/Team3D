@@ -1,6 +1,7 @@
 package user.service.contact;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,13 +21,13 @@ public class ContactRestController {
 	@Autowired
 	ContactRestRepository repository;
 	
-	
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping(value = "contact/all")
 	public Iterable<Contact> allContacts() {
 		Iterable<Contact> contacts = repository.findAll();
 		return contacts;
 	}
-	
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping(value = "contact/all/{user}")
 	public Iterable<Contact> allContactsById(@PathVariable("user") int id) {
 		
@@ -34,7 +35,23 @@ public class ContactRestController {
 		return contacts;
 	}
 	
-
+	@CrossOrigin(origins = "http://localhost:8080")
+	@GetMapping(value = "contact/asked/{user}")
+	public Iterable<Contact> allAskedContactsById(@PathVariable("user") int id) {
+		
+		Iterable<Contact> contacts = repository.findAllByAskedId(id);
+		return contacts;
+	}
+	
+	@CrossOrigin(origins = "http://localhost:8080")
+	@GetMapping(value = "contact/pending/asked/{user}")
+	public int allPendingAskedContactsById(@PathVariable("user") int id) {
+		
+		int number= repository.findAllPending(id);
+		return number;
+	}
+	
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/createContact/{asker}/{asked}")
 	public void createContact(@PathVariable("asker") int idAsker, @PathVariable("asked") int idAsked) {
 
@@ -59,7 +76,7 @@ public class ContactRestController {
 		repository.save(toUpdate);
 		
 	}
-	
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/rejectContact/{asker}/{asked}")
 	public void rejectContact(@PathVariable("asker") int idAsker, @PathVariable("asked") int idAsked) {
 

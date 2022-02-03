@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.centrato{
+  margin-top: 30px;
+    margin: auto;
+    width: 500px;
+    padding: 80px 40px 40px;
+    border: 1px solid black;
+    align-content: center;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.intestazione{
+    color: black; 
+    transition: .0.2s all;   
+    transition-delay: 0.2s; 
+}
+
+.intestazione:hover{
+    color: red;
+    transition-delay: 0.
+    1s;
+}
+
+body{
+   background: url('/bg.jpg') no-repeat center;
+    font-family: 'Lato', sans-serif;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+  }
+
+  input[type=email], select {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+  
+  input[type=password], select {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+  
+  input[type=submit] {
+    display: block;
+    outline: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 35%;
+  }
+
+  input[type=reset] {
+    display: block;
+    outline: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 35%;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+    box-shadow: black;
+  }
+
+  input[type=reset]:hover {
+    background-color: #b10000;
+    box-shadow: black;
+
+  }
+  
+  
+/* HIDE RADIO */
+input[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+input[type=radio] + img{
+  cursor: pointer;
+  display: inline-block; 
+  position: relative; 
+  width: 100px; 
+  height: 100px; 
+  overflow: hidden; 
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+/* CHECKED STYLES */
+input[type=radio]:checked + img{
+  outline: 2px solid #f00;
+}
+
+
+  

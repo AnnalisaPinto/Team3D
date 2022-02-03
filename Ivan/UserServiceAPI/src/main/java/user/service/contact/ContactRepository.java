@@ -15,4 +15,5 @@ public interface ContactRepository extends CrudRepository<Contact, Integer>{
 	int findIdByAskerAsked(User asker, User asked);
 	
 	
+	
 }

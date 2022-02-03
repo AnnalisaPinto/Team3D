@@ -3,7 +3,7 @@
 
 <head>
 	<title>Registrazione</title>
-	<link href="/style.css" rel="stylesheet">
+	<link href="/styleRecForm.css" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -27,10 +27,10 @@
 
 
 			<label for="avatar">Avatar:<br>
-				<span th:each="avatar:${avatars}">
+				<span th:each="avatar : ${avatars}">
 					<label>
 						<input type="radio" name="avatar" th:value="${avatar.id}" checked>
-						<img th:src="${avatar.image}">
+						<img th:src="${avatar.src}">
 						</input>
 					</label>
 				</span>

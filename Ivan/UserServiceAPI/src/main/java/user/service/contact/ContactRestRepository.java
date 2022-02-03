@@ -16,6 +16,8 @@ public interface ContactRestRepository extends CrudRepository<Contact, Integer>{
 	@Query(value = "Select id from contact where asker_user_id = (?1) and asked_user_id = (?2)", nativeQuery = true)
 	int findIdByAskerAsked(User asker, User asked);
 	List<Contact> findAllByAskerId(int id);
-	
+	@Query(value = "Select COUNT(*) AS number from contact where asked_user_id = (?1) and status = 0", nativeQuery = true)
+	int findAllPending(int id);
+	List<Contact> findAllByAskedId(int id);
 
 }

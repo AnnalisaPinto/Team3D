@@ -19,6 +19,7 @@ public interface UrlRestRepository extends CrudRepository<Url, Integer>{
 	List<Url> findByUserIdType(User id, String type);
 	Url findById(int id);
 	Url findByUrl(String url);
+	void deleteByUrl(String url);
 	
 
 	
