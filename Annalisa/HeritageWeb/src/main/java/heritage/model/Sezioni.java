@@ -122,20 +122,32 @@ public class Sezioni {
 		return done;
 	}
 	
-	public static boolean UpdateSezioni(int id, String iframe, String testo) {
-
+	
+	// QUERY GAETANO
+	
+	public static Sezione ReadOneByDocument(int idDoc) {
+		Sezione sezione = null;
+	
 		ConnessioneDB connessione = new ConnessioneDB();
-		boolean done = false;
-		// UPDATE `sezioni` SET `iframe` = 'sdfghjkfesgsgsgg', `testo` = 'dfghjklfdsfggrsgrs' WHERE `sezioni`.`id` = 15;
+
 		try {
 			connessione.connect();
-			connessione.executeUpdate("UPDATE sezioni SET  + (`iframe` = `" + iframe + "`,`testo`=`" + testo + "`WHERE`sezioni`.`id`=" + id);
-			connessione.close();
-			done = true;
-		} catch (Exception e) {
+
+			ResultSet set = connessione.executeQuery("Select * from sezioni where id_documento="+idDoc);
+
+			if (set.next()) {
+				int id = set.getInt("id");
+				String iframe = set.getString("iframe");
+				byte[] arrayTesto= set.getBytes("testo");
+				String testo =  new String(arrayTesto, StandardCharsets.UTF_8);
+				int id_documento = set.getInt("id_documento");
+				sezione = new Sezione(id,iframe, testo, id_documento);
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
+			sezione = null;
 		}
-		return done;
+		return sezione;
 	}
-	
+
 }

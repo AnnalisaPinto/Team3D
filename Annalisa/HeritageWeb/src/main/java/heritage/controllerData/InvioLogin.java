@@ -31,7 +31,7 @@ public class InvioLogin {
 
 		try {
 			// Dovete accendere il server per eseguire questa!!
-			URL paginaURL = new URL("http://localhost:8081/verificalogin??");
+			URL paginaURL = new URL("http://localhost:8081/verificaLogin");
 
 			HttpURLConnection client = (HttpURLConnection) paginaURL.openConnection();
 			client.setRequestMethod("POST");

@@ -24,7 +24,6 @@ public class RecuperoJson<T> {
 			URL paginaURL = new URL(url);
 
 			HttpURLConnection client = (HttpURLConnection) paginaURL.openConnection();
-
 			// client.setRequestProperty(result, result);
 
 			int responseCode = client.getResponseCode();

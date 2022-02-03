@@ -81,7 +81,7 @@
 					<!-- Inserisci commento (Accedi per commentare) -->
 					<form id="algin-form" action="Login.jsp">
 						<div class="form-group d-flex justify-content-around">
-							<button type="button" id="post" class="btn">Accedi per
+							<button type="submit" id="post" class="btn">Accedi per
 								commentare</button>
 						</div>
 					</form>

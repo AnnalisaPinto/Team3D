@@ -36,7 +36,7 @@ User commentatore = Users.readUserById(id);
 				<a href="<%=url%>" class="back">Indietro</a>
 			</div>
 		</div>
-		
+
 		<div class="card">
 			<div class="header">
 				<div class="main">
@@ -50,14 +50,29 @@ User commentatore = Users.readUserById(id);
 			<div class="content">
 				<div class="buttons-wrap">
 					<div class="follow-wrap">
-						<a href="#" class="follow">Richiedi contatto</a>
+						<a href="#" class="follow" id="inviaRichiesta">Invia Richiesta</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<script>
+		var inviaRichiesta = document.getElementById('inviaRichiesta');
 
+		inviaRichiesta.addEventListener("click", function(e) {
+			ajaxInviaRichiesta(<%=utente.getUser().getId()%>,<%=id%>);
+				this.outerHTML = '<a href="#" class="follow ok" id="fatto">Fatto!</a>';
+		});
 
+		function ajaxInviaRichiesta(session, asked) {
+			const richiesta = new XMLHttpRequest();
+			richiesta.open("POST",
+					"http://localhost:8080/HeritageWeb/sendRequest");
+			richiesta.setRequestHeader("Content-type",
+					"application/x-www-form-urlencoded");
+			richiesta.send("session=" + session + "&asked=" + asked);
+		}
+	</script>
 </body>
 </html>

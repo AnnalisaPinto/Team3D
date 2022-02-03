@@ -17,7 +17,6 @@
 </head>
 <body>
 	<%@ include file="../include/navbar.html"%>
-
 	<div class="container">
 		<%
 		List<Documento> documenti = Documenti.ReadAllByAdmin();
@@ -27,37 +26,36 @@
 		%>
 		<div class="d-flex justify-content-center">
 			<a href="VisualizzaDocumento.jsp?id=<%=+documento.getId()%>" id="ex3"
-				style="text-decoration:none"><h2>
-				<%=documento.getTitolo()%>
-			</h2></a>
+				style="text-decoration: none">
+				<h2><%=documento.getTitolo()%></h2>
+			</a>
 		</div>
 		<%
 		for (Sezione sezione : sezioni) {
 		%>
-		<div class="d-flex justify-content-center">
+		<div class="justify-content-center">
 			<div class="card2">
 				<div class="row no-gutters">
-					<div class="col-auto">
+					<div class="col-6">
 						<%=sezione.getIframe()%>
 					</div>
 					<div class="col">
 						<div class="card-block px-2">
 							<p class="card-text bg-light rounded fst-italic"><%=sezione.resizeTesto(sezione.getTesto())%></p>
-							<a href="VisualizzaSezione.jsp?id=<%=+documento.getId()%>"
+							<a href="VisualizzaSezione.jsp?id=<%=+sezione.getId()%>"
 								class="btn btn-primary">Continua a leggere</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<br>
+		<%
+		}
+		}
+		}
+		%>
 	</div>
-	<br>
-	<%
-	}
-	}
-	}
-	%>
-	</div>
-
+	
 </body>
 </html>

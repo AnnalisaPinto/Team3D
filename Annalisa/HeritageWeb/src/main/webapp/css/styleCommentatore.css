@@ -157,6 +157,20 @@ body {
    
 }
 
+.follow.ok{
+	margin-left: 36px;
+	 padding: 12px 28px;
+    width: 100%;
+    background: linear-gradient(to right, rgb(4, 153, 79) 0%, rgb(124, 252, 188) 140%);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: .7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+
 .back {
     padding: 12px 28px;
     width: 100%;

@@ -52,7 +52,7 @@ public class UserController {
 					+ "					role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">\r\n"
 					+ "					<ul class=\"dropdown-menu dropdown-menu-end\"\r\n"
 					+ "						aria-labelledby=\"navbarDropdown\">\r\n"
-					+ "						<li><a class=\"dropdown-item\" href=\"#\">Contatti</a></li>\r\n"
+					+ "						<li><a class=\"dropdown-item\" href=\"Profilo.jsp\">Profilo</a></li>\r\n"
 					+ "						<li><hr class=\"dropdown-divider\"></li>\r\n"
 					+ "						<li><a class=\"dropdown-item\" href=\"Logout.jsp?mode=logout\">Logout</a></li>\r\n"
 					+ "					</ul>";

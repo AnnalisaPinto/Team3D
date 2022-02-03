@@ -1,5 +1,6 @@
 package heritage.model;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,7 +20,8 @@ public class Commenti {
 
 			while (set.next()) {
 				int id = set.getInt("id");
-				String commento = set.getString("commento");
+				byte[] arrayTesto= set.getBytes("commento");
+				String commento =  new String(arrayTesto, StandardCharsets.UTF_8);
 				int id_utente = set.getInt("id_utente");
 				int id_documento = set.getInt("id_documento");
 				String data = set.getString("data");

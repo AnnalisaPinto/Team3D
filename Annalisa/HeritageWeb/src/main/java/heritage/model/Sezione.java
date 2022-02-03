@@ -41,7 +41,11 @@ public class Sezione {
 	}
 	
 	public String resizeTesto(String testo) {
+		if(testo.length() > 200)
 		return testo.substring(0, 300)+"...";
+		else
+		return testo.substring(0, 100)+"...";
 	}
+
 	
 }

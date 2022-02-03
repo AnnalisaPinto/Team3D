@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@page import="heritage.model.UserController"%>
 <%@page import="heritage.model.User"%>
+<%@page import="heritage.model.Documento"%>
+<%@page import="heritage.model.Documenti"%>
+<%@page import="heritage.model.Sezione"%>
+<%@page import="heritage.model.Sezioni"%>
 <%@include file="../include/gestioneLogout.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,29 +25,32 @@
 				<strong>Scopri le meraviglie della Campania in 3D</strong>
 			</h1>
 			<br> <br> <br>
-			<div class="sketchfab-embed-wrapper">
-				<iframe title="Life on the Vesuvio side, Italy"
-					style="width: 50%; height: 400px; float: right" frameborder="0"
-					allowfullscreen mozallowfullscreen="true"
-					webkitallowfullscreen="true"
-					allow="autoplay; fullscreen; xr-spatial-tracking"
-					xr-spatial-tracking execution-while-out-of-viewport
-					execution-while-not-rendered web-share
-					src="https://sketchfab.com/models/6c245d856aef452e83ee132f4d3ddc93/embed">
-				</iframe>
-			</div>
-			<h2>Vesuvio</h2>
-			<br> <br>
-			<p style="text-align: justify; width: 40%; color: white;">Il
-				Vesuvio rappresenta il simbolo di Napoli, ne domina il golfo ed è
-				uno dei 2 vulcani attivi dell’Europa continentale. Il Somma-Vesuvio,
-				propriamente detto, è oggetto di ricerca e monitoraggio continui al
-				fine di scongiurare catastrofi come quelle occorse alle città di
-				Pompei ed Ercolano nel 79 d.C. in seguito ad una delle storiche
-				eruzioni.</p>
-			<br> <br> <a href="" style="color: white;">Continua a
-				leggere..</a>
+			<div class=container>
+				<div class="row">
+					<%
+					Documento documento = Documenti.ReadOneAdmin(2);
+					if (documento != null) {
+						Sezione sezione = Sezioni.ReadOneByDocument(documento.getId());
+						if (sezione != null) {
+					%>
+					<div class="col-5">
+						<a href="VisualizzaDocumento.jsp?id=<%=+documento.getId()%>"
+							id="ex3" style="text-decoration: none"><h2><%=documento.getTitolo()%></h2></a>
+						<br> <br>
+						<p style="text-align: justify; color: white;"><%=sezione.resizeTesto(sezione.getTesto())%></p>
+						<br> <br> <a href="VisualizzaSezione.jsp?id=<%=+sezione.getId()%>" style="color: white;">Continua
+							a leggere..</a>
+					</div>
+					<div class="col-7"><%=sezione.getIframe()%></div>
 
+
+
+					<%
+					}
+					}
+					%>
+				</div>
+			</div>
 		</section>
 	</div>
 

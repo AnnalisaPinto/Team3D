@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Documenti {
+	
 	public static List<Documento> ReadAll() {
 		List<Documento> documenti = new ArrayList<Documento>();
 	
@@ -82,6 +83,35 @@ public class Documenti {
 		}
 		return documento;
 	}
+	
+	// QUERY GAETANO
+	
+	public static Documento ReadOneAdmin(int admin) {
+		Documento documento = null;
+	
+		ConnessioneDB connessione = new ConnessioneDB();
+
+		try {
+			connessione.connect();
+
+			ResultSet set = connessione.executeQuery("Select * from documenti where amministratore ="+admin);
+
+			if (set.next()) {
+				int id = set.getInt("id");
+				String titolo = set.getString("titolo");
+				String data = set.getString("data");
+				int amministratore = set.getInt("amministratore");
+
+				 documento = new Documento(id,titolo, data, amministratore);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			documento = null;
+		}
+		return documento;
+	}
+
+	
 	
 	// QUERY PAOLO
 	public static boolean CreateDocumento(String titolo, String data, boolean amministratore) {
