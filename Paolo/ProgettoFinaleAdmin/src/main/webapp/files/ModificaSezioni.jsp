@@ -81,6 +81,7 @@ body, h1, h2, h3, h4, h5, h6 {
 			<input style="text-align: center; type="text" id= "iframe" name="iframe" placeholder="Iframe">
 			Testo
 			<input type="text" id="testo" name="testo" value="<%=sezioni.getTesto()%>">
+			<input type="hidden" id="id_documento" name="id_documento" value="<%=sezioni.getId_documento()%>">
 
 			<a><button type="submit" class="submit">Modifica</button></a>
 			<br> <br>
@@ -88,10 +89,7 @@ body, h1, h2, h3, h4, h5, h6 {
 			<%
 			}
 			%>
-			
-			
-
-		
+					
 
 
 	</header>

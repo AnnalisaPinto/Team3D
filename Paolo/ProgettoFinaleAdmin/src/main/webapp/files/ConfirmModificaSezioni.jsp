@@ -69,19 +69,19 @@ body, h1, h2, h3, h4, h5, h6 {
 		<body>
 
 <%  
+int id = Integer.parseInt(request.getParameter("id"));
 String iframe = request.getParameter("iframe");
 String testo = request.getParameter("testo");
-int id = Integer.parseInt(request.getParameter("id"));
+int id_documento = Integer.parseInt(request.getParameter("id_documento"));
 
-Sezione sez = new Sezione(id,testo,iframe);
+//Sezione sez = new Sezione(id,iframe,testo,id_documento);
 
-Sezioni.UpdateSezioni(sez);
+Sezioni.UpdateSezioni(new Sezione(id,iframe,testo,id_documento));
 
 %>
 
 	
 	<h1 style="text-align: center;">Sezione Modificata!</h1>
-
 </body>
 
 <!-- Footer -->

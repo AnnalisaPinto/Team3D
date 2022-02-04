@@ -133,8 +133,8 @@ public class Sezioni {
 		boolean done = false;	
 		try {
 			connessione.connect();
-			connessione.executeUpdate("UPDATE sezioni SET testo = '" + s.getTesto() + "'," + " iframe = '"
-					+ s.getIframe() + "' WHERE id = " + s.getId());
+			connessione.executeUpdate("UPDATE sezioni SET iframe = '" + s.getIframe() + "'," + " testo = \""
+					+ s.getTesto() + "\" WHERE id = " + s.getId());
 
 			connessione.close();
 			done = true;

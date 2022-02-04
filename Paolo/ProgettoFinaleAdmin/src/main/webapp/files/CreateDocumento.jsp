@@ -74,7 +74,7 @@ body, h1, h2, h3, h4, h5, h6 {
 
 
 				<input style="text-align: center;" type="text" id="titolo"
-					name="titolo" placeholder="Titolo Storia"> <input
+					name="titolo" placeholder="Titolo Documento"> <input
 					type="date" id="data" name="data" placeholder="">
 				<!-- <input type="number" id="amministratore" name="amministratore" min="0" max="1" placeholder="1"> -->
 

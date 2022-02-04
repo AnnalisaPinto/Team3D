@@ -19,7 +19,7 @@ public class Sezione {
 	}
 	
 
-	public Sezione(int id, String testo, String iframe) {
+	public Sezione(int id,  String iframe,String testo) {
 		this.id = id;
 		this.iframe = iframe;
 		this.testo = testo;
