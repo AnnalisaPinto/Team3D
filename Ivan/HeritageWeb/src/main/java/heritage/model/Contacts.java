@@ -53,17 +53,17 @@ public class Contacts {
 		} else {
 			// Cast su un metodo generic:
 			// Restituisce i contatti per quell'user, qualsiasi sia lo status
-			tuttiContatti = (LinkedList<Contact>) json.getList("http://127.0.0.1:8081/contact/all/" + asked,
+			tuttiContatti = (LinkedList<Contact>) json.getList("http://127.0.0.1:8081/contact/asked/" + asked,
 					Contact.class);
 		}
 		Iterator<Contact> i = tuttiContatti.iterator();
-		// Voglio soltanto gli utenti restituiti da asked
+		// Voglio soltanto gli utenti restituiti da asker
 		LinkedList<User> accettate = new LinkedList<User>();
 		while (i.hasNext()) {
 			Contact contact = (Contact) i.next();
 			// E soltanto dove lo status è "Pending" e il richiedente non sia l'user in sessione
-			if (contact.getStatus() == 0 && contact.getAsked().getId()!=asked) {
-				accettate.add(contact.getAsked());
+			if (contact.getStatus() == 0 && contact.getAsker().getId()!=asked) {
+				accettate.add(contact.getAsker());
 			}
 		}
 
@@ -82,7 +82,7 @@ public class Contacts {
 	public static String acceptRequest(int session, int asker) {
 
 		RecuperoJson<String> json = new RecuperoJson<String>();
-		String result = json.downloadJson("http://localhost:8081/acceptContact/" + asker + "/" + session);
+		String result = json.downloadJson("http://localhost:8081/acceptContact/" + session + "/" + asker);
 		System.out.println(result);
 		return result;
 

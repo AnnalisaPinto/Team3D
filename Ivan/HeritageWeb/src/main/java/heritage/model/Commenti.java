@@ -44,8 +44,8 @@ public class Commenti {
 		boolean done = false;
 		try {
 			connessione.connect();
-			connessione.executeUpdate("INSERT INTO commenti (id,commento,id_utente,id_documento) VALUES (NULL, '"
-					+ commento + "','" + utente.getId() + "','"+id_documento+"')");
+			connessione.executeUpdate("INSERT INTO commenti (id,commento,id_utente,id_documento) VALUES (NULL, \""
+					+ commento + "\",'" + utente.getId() + "','"+id_documento+"')");
 			connessione.close();
 			done = true;
 		} catch (SQLException e) {
